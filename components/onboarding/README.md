@@ -221,10 +221,51 @@ function MyApp() {
 - ✅ Accessible
 - ✅ Pricing cards adapt to screen size (1/2/3 columns)
 
+## UI Variants
+
+In addition to the default `OnboardingStep` component, we provide multiple UI layout variants that all accept the same `OnboardingStepProps` interface:
+
+### Available Variants
+
+1. **OnboardingStepImageTop** - Classic vertical layout with image above content (default)
+2. **OnboardingStepImageLeft** - Horizontal split with image on left, content on right
+3. **OnboardingStepImageRight** - Horizontal split with image on right, content on left
+4. **OnboardingStepBackgroundImage** - Content overlays a background image with gradient
+5. **OnboardingStepCompact** - Minimal, compact design with small image badge
+6. **OnboardingStepHero** - Full-width hero section with large image
+
+### Using Variants
+
+All variants are drop-in replacements for `OnboardingStep`:
+
+```tsx
+import { OnboardingWizard, OnboardingStepImageLeft } from "@/components/onboarding"
+
+function MyApp() {
+  return (
+    <OnboardingWizard open={isOpen} onOpenChange={setIsOpen}>
+      <OnboardingStepImageLeft
+        title="Welcome!"
+        description="Get started with our platform"
+        image="https://example.com/image.jpg"
+        primaryCTA={{ label: "Continue" }}
+      />
+    </OnboardingWizard>
+  )
+}
+```
+
+### View All Variants
+
+Visit `/step-ui-variants` to see all variants in action with interactive demos and usage recommendations.
+
 ## See Also
 
 - See `onboarding-example.tsx` for a complete working example
 - See `onboarding-pricing-step.tsx` for pricing step implementation
+- See `onboarding-step-variants.tsx` for all UI variant implementations
+- See `step-ui-variants-demo.tsx` for interactive demos
+- Visit `/step-ui-variants` page to test variants interactively
 - Uses components from `components/ui/`: Button, AlertDialog, Input
 - Built with `react-use-wizard` for wizard state management
 
